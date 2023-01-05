@@ -1,7 +1,7 @@
 package com.runProject.routes.member
 
-import com.runProject.users.dto.UserRequest
-import com.runProject.users.facade.dao
+import com.runProject.models.user.dto.UserRequest
+import com.runProject.facade.user.dao
 import io.ktor.server.application.*
 import io.ktor.server.request.*
 import io.ktor.server.response.*
@@ -14,5 +14,4 @@ fun Route.signUpRouting() {
             call.respond(dao.addNewUser(user.encrpytUser())!!)
         }
     }
-
 }

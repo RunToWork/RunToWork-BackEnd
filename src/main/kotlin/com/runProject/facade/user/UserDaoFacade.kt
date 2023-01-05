@@ -1,8 +1,7 @@
-package com.runProject.users.facade
+package com.runProject.facade.user
 
-import com.runProject.users.domain.User
-import com.runProject.users.dto.UserRequest
-
+import com.runProject.models.user.domain.User
+import com.runProject.models.user.dto.UserRequest
 
 interface UserDaoFacade {
     suspend fun allUsers(): List<User>

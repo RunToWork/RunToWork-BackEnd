@@ -1,9 +1,9 @@
-package com.runProject.users.facade
+package com.runProject.facade.user
 
 import com.runProject.config.DatabaseFactory.dbQuery
-import com.runProject.users.domain.User
-import com.runProject.users.domain.Users
-import com.runProject.users.dto.UserRequest
+import com.runProject.models.user.domain.User
+import com.runProject.models.user.domain.Users
+import com.runProject.models.user.dto.UserRequest
 import org.jetbrains.exposed.sql.ResultRow
 import org.jetbrains.exposed.sql.insert
 import org.jetbrains.exposed.sql.transactions.transaction
@@ -13,8 +13,7 @@ class UserDaoFacadeImpl : UserDaoFacade {
         id = row[Users.id],
         name = row[Users.name],
         email = row[Users.email],
-        password = row[Users.password],
-        mobileNumber = row[Users.mobileNumber]
+        password = row[Users.password]
     )
 
     override suspend fun allUsers(): List<User> {
@@ -30,7 +29,6 @@ class UserDaoFacadeImpl : UserDaoFacade {
             it[name] = request.name
             it[email] = request.email
             it[password] = request.password
-            it[mobileNumber] = request.mobileNumber
         }
 
         transaction {

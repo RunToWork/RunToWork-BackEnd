@@ -1,4 +1,4 @@
-package com.runProject.users.domain
+package com.runProject.models.user.domain
 
 import kotlinx.serialization.Serializable
 import org.jetbrains.exposed.sql.Table
@@ -8,8 +8,7 @@ data class User(
     val id: Int,
     val name: String,
     val email: String,
-    val password: String,
-    val mobileNumber: String
+    val password: String
 )
 
 object Users: Table(){
@@ -17,7 +16,6 @@ object Users: Table(){
     val name = varchar("name", 255)
     val email = varchar("email", 255)
     val password = varchar("password", 255)
-    val mobileNumber = varchar("mobile_number", 255)
 
     override val primaryKey = PrimaryKey(id)
 }

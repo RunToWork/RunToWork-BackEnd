@@ -1,4 +1,4 @@
-package com.runProject.users.dto
+package com.runProject.models.user.dto
 
 import kotlinx.serialization.Serializable
 import org.mindrot.jbcrypt.BCrypt
@@ -7,13 +7,11 @@ import org.mindrot.jbcrypt.BCrypt
 data class UserRequest(
     val name: String,
     val email: String,
-    val password: String,
-    val mobileNumber: String
+    val password: String
 ) {
     fun encrpytUser() = UserRequest(
         name = this.name,
         email = this.email,
-        password = BCrypt.hashpw(this.password,BCrypt.gensalt(12)),
-        mobileNumber = this.mobileNumber
+        password = BCrypt.hashpw(this.password,BCrypt.gensalt(12))
     )
 }
